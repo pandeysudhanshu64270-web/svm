@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sudhanshu Gamer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080812;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 7%;
+            background: rgba(8, 8, 18, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #24243d;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00eaff;
+        }
+
+        .logo span {
+            color: #ff00d4;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00eaff;
+        }
+
+        .menu {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at 20% 30%, #16105c, transparent 35%),
+                radial-gradient(circle at 80% 70%, #4d074f, transparent 35%),
+                #080812;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow:
+                0 0 10px #00eaff,
+                0 0 30px #00eaff;
+        }
+
+        .hero h1 span {
+            color: #ff00d4;
+            text-shadow:
+                0 0 10px #ff00d4,
+                0 0 30px #ff00d4;
+        }
+
+        .hero p {
+            font-size: 21px;
+            color: #ccccdd;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 8px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 35px #00c6ff;
+        }
+
+        .btn.pink {
+            background: linear-gradient(90deg, #ff00cc, #7b00ff);
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #00eaff;
+        }
+
+        /* GAMES */
+
+        .games {
+            background: #0c0c19;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .game-card {
+            background: #141426;
+            border: 1px solid #29294a;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            border-color: #00eaff;
+            box-shadow: 0 0 25px rgba(0, 234, 255, 0.25);
+        }
+
+        .game-icon {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .game-card h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+            color: #00eaff;
+        }
+
+        .game-card p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .play-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 20px;
+            background: #ff00d4;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about {
+            text-align: center;
+        }
+
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            background: #141426;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #29294a;
+        }
+
+        .about-box p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat h2 {
+            font-size: 45px;
+            color: #00eaff;
+        }
+
+        .stat p {
+            color: #aaa;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #0c0c19;
+        }
+
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #151526;
+            color: white;
+            border: 1px solid #333352;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #00eaff;
+            box-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #00eaff, #0072ff);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 25px #00eaff;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #06060d;
+            color: #aaa;
+        }
+
+        footer span {
+            color: #00eaff;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .game-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                right: -100%;
+                width: 220px;
+                background: #10101d;
+                flex-direction: column;
+                padding: 25px;
+                transition: 0.4s;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .menu {
+                display: block;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .stats {
+                gap: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">
+            SUDHANSHU<span> GAMER</span>
+        </div>
+
+        <div class="menu" onclick="toggleMenu()">?</div>
+
+        <ul id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                SUDHANSHU <span>GAMER</span>
+            </h1>
+
+            <p>
+                ?? Welcome to my gaming world!  
+                Discover games, gaming content, coding projects and more.
+            </p>
+
+            <a href="#games" class="btn">
+                ?? EXPLORE GAMES
+            </a>
+
+            <a href="#contact" class="btn pink">
+                ?? CONTACT ME
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAMES -->
+
+    <section class="games" id="games">
+
+        <h2 class="section-title">
+            MY <span>GAMES</span>
+        </h2>
+
+        <div class="game-container">
+
+            <div class="game-card">
+                <div class="game-icon">??</div>
+                <h3>Snake Game</h3>
+                <p>
+                    Classic snake game created with programming.
+                </p>
+                <a href="#" class="play-btn">PLAY NOW</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">??</div>
+                <h3>Car Racing</h3>
+                <p>
+                    Race your car and try to achieve the highest score.
+                </p>
+                <a href="#" class="play-btn">PLAY NOW</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">??</div>
+                <h3>Flying Bird</h3>
+                <p>
+                    Control your bird and survive the obstacles.
+                </p>
+                <a href="#" class="play-btn">PLAY NOW</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">??</div>
+                <h3>Target Shooter</h3>
+                <p>
+                    Test your speed and accuracy in this challenge.
+                </p>
+                <a href="#" class="play-btn">PLAY NOW</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">??</div>
+                <h3>Brain Puzzle</h3>
+                <p>
+                    Challenge your brain with interesting puzzles.
+                </p>
+                <a href="#" class="play-btn">PLAY NOW</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">??</div>
+                <h3>Battle Arena</h3>
+                <p>
+                    Enter the arena and become the ultimate champion.
+                </p>
+                <a href="#" class="play-btn">PLAY NOW</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            ABOUT <span>ME</span>
+        </h2>
+
+        <div class="about-box">
+
+            <p>
+                Welcome to <b>Sudhanshu Gamer</b>!
+                This website is my gaming space where I share
+                games, gaming projects, coding experiments and
+                exciting new content.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h2>10+</h2>
+                    <p>Games</p>
+                </div>
+
+                <div class="stat">
+                    <h2>100+</h2>
+                    <p>Players</p>
+                </div>
+
+                <div class="stat">
+                    <h2>24/7</h2>
+                    <p>Gaming</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">
+            CONTACT <span>ME</span>
+        </h2>
+
+        <form class="contact-form" onsubmit="sendMessage(event)">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                id="message"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+            <button class="submit-btn" type="submit">
+                SEND MESSAGE ??
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Sudhanshu Gamer</span>.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            ?? Game • Code • Create
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function toggleMenu() {
+
+            document
+                .getElementById("navLinks")
+                .classList
+                .toggle("active");
+
+        }
+
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("name").value;
+
+            alert(
+                "Thank you, " + name +
+                "! Your message has been received. ??"
+            );
+
+            document
+                .querySelector(".contact-form")
+                .reset();
+
+        }
+
+
+        // Close mobile menu after clicking a link
+
+        document
+            .querySelectorAll("#navLinks a")
+            .forEach(function(link) {
+
+                link.addEventListener("click", function() {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList
+                        .remove("active");
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
